@@ -116,6 +116,7 @@ def WaitForAck(pInverterId, pTimeoutInS):
 def SetLimitInverterLimit(pInverterId, pLimit):
     logger.info('%s: Inverter "%s": setting new limit from %s Watt to %s Watt', DTU.TypeName(), NAME[pInverterId], CastToInt(CURRENT_LIMIT[pInverterId]), CastToInt(pLimit))
     DTU.SendLimit(pInverterId, pLimit)
+    CURRENT_LIMIT[pInverterId] = pLimit
 
 def SetLimitWithPriority(pLimit):
     try:
